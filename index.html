@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<script src="./o.js" type="javascript"></script>
+	</head>
+	<body>
+		<div o="app">
+			<div o="state">
+				<!-- web app state changes here -->
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+var o = (function($, _) {
+	function define(id, deps, callback) {
+		return {
+			add: function(service) {
+				this.service = service;
+			}
+		};
+	}
+	function extend(base, object) {
+		base.prototype = object;
+		return base;
+	}
+	function Service(config) {
+		(function () {
+			function get(url, callback) {
+				
+			}
+			return {
+				get: get
+			}
+		})(config)
+	}
+	function parse() {
+		
+	}
+	return {
+		extend: extend,
+		define: define,
+		parse: parse,
+		add: add,
+		Service: Service,
+		
+	}
+})(null, null);
+</script>
+
+<script>
+	var postService = o.Service.extend({
+		url: '/api/posts',
+	})
+	o.define('init', [], function(){
+		
+	}).add(postService);
+	
+</script>
